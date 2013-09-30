@@ -6,7 +6,7 @@ Created on Sep 24, 2013
 
 #check dau vao la so thuc ?
 def checknumber(a,b,c):
-    if (a>0 and b>0 and c>0 and a <= 2**32 - 1 and b<=2**32 - 1 and c<=2**32 - 1):
+    if (a > 0 and b > 0 and c > 0 and a <= 2**32 - 1 and b <= 2**32 - 1 and c <= 2**32 - 1):
         return 1
     else:
         return 0
@@ -27,12 +27,12 @@ def change_stringToNumber(value):
         
 
 def detect_triangle(a, b, c):
-    '''
+
     change_stringToNumber(a)
     change_stringToNumber(b)
     change_stringToNumber(c)
-    '''
-    EPSILONE = 10**-10
+    
+    EPSILONE = 10**-9
     if ((type(a) in [float,int,long]) and (type(b) in [float,int,long]) and (type(c) in [float,int,long] )):
         if ( checknumber(a, b, c) == 1):
         

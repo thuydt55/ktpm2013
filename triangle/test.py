@@ -11,6 +11,7 @@ import math
 # UnitTest
 # This pulls our function in form the other file:
 
+from decimal import Decimal
 from triangle import detect_triangle
 
 class test_triangle (unittest.TestCase):
@@ -84,6 +85,19 @@ class test_triangle (unittest.TestCase):
     def test_vuongcantaiC(self):
         result = detect_triangle(math.sqrt(200), 10, 10)
         self.assertEqual(result,'tam giac vuong can')
+        
+    def test_try(self):
+        result = detect_triangle(2**32 - 1, 2**32 -1, 4.0)
+        self.assertEqual(result,"tam giac vuong can")
+    
+    def test_vuongcan2(self):
+        result = detect_triangle(2**32 - 1, 4.0, 2**32 -1)
+        self.assertEqual(result,"tam giac vuong can")
+    
+    def test_vuongcan3(self):
+        result = detect_triangle( 4.0, 2**32 - 1, 2**32 -1)
+        self.assertEqual(result,"tam giac vuong can")
+    
     '''
     -------------------------------------------------------------
     '''
@@ -108,7 +122,7 @@ class test_triangle (unittest.TestCase):
         self.assertEqual(result, 'khong phai tam giac')
     
     def test_khongphaitamgiac2(self):
-        result = detect_triangle(2**31 - 1, 10**-9, 2**31-1)
+        result = detect_triangle(Decimal(2**31 - 1), Decimal(10**-9 ), Decimal(2**31 -1))
         self.assertEqual(result,'khong phai tam giac')
    
     '''
