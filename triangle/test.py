@@ -84,6 +84,12 @@ class test_triangle (unittest.TestCase):
     def test_vuongcantaiC(self):
         result = detect_triangle(math.sqrt(200), 10, 10)
         self.assertEqual(result,'tam giac vuong can')
+      
+        
+    def test_try(self):
+        result = detect_triangle(2**32 - 1, 2**32 -1, 4.0)
+        self.assertEqual(result,"tam giac vuong can")
+    
     '''
     -------------------------------------------------------------
     '''
