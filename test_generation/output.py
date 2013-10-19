@@ -71,23 +71,10 @@ def get_input_test (arr):
         
 class MainTest (unittest.TestCase):
     pass
+
 def test_generator(a):
-    def wrapper (func,args):
-        func(*args)
-    params = len(a)
     def test(self):
-        try:
-            if params == 0:
-                result = main(*a)
-                self.assertEqual(result,result)
-            elif params > 0:
-                test = []
-                for i in range(0,params):
-                    test.append(a[i])
-                result = wrapper(main,a)
-                self.assertEquals(result,result)
-        except:
-            self.fail("Raised an exception")
+        self.assertEqual("pass" , main(*a))
     return test
 
 if __name__ == '__main__':
@@ -96,6 +83,7 @@ if __name__ == '__main__':
     array.extend(getValue())
     input = get_input_test(array)
     output = list (itertools.product(*input))
+    
     i = 0
     for arr in output:
         test_name = 'test_%d' % i
