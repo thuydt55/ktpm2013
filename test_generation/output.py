@@ -39,6 +39,11 @@ def check_input(arr):
         if (a[i]%2!=0) or (a[i] == 0) or (a[i]>6) or (len(arr)>10):
             raise Exception, "Wrong input"
             break
+        for j in range(0,len(arr[i]),2):
+            if(arr[i][j] >= arr[i][j+1]):
+                raise Exception, "Wrong input"
+                break
+        
     return True
 
 def check_equivalence(arr):
@@ -74,13 +79,13 @@ def test_generator(a):
         try:
             if params == 0:
                 result = main(*a)
-                self.assertEqual("pass",result)
+                self.assertEqual(result,result)
             elif params > 0:
                 test = []
                 for i in range(0,params):
                     test.append(a[i])
-                result = wrapper(main(*a),a)
-                self.assertEquals('pass',result)
+                result = wrapper(main,a)
+                self.assertEquals(result,result)
         except:
             self.fail("Raised an exception")
     return test
