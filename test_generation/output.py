@@ -34,9 +34,11 @@ def getValue():
 
 def check_input(arr):
     a = []
+    if len(arr) == 0 :
+            raise Exception, "Wrong input"
     for i in range(len(arr)):
         a.append(len(arr[i]))
-        if (a[i]%2!=0) or (a[i] == 0) or (a[i]>6) or (len(arr)>10):
+        if (a[i]%2!=0) or (a[i] == 0) or (a[i]>6) or (len(arr)>10) :
             raise Exception, "Wrong input"
             break
         for j in range(0,len(arr[i]),2):
