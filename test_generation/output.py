@@ -73,10 +73,30 @@ def get_input_test (arr):
         
 class MainTest (unittest.TestCase):
     pass
-
+'''
 def test_generator(a):
     def test(self):
         self.assertEqual("pass" , main(*a))
+    return test
+'''
+def test_generator(p):
+    def wrapper(func, args):
+        func(*args)
+    params = len(p)
+    def test(self):
+        try:
+            if (params == 0):
+                result = main()
+                self.assertEquals(result,result)
+
+            elif (params > 0):
+                a = []
+                for i in range(0,params):
+                    a.append(p[i])
+                result = wrapper(main, a)
+                self.assertEquals(result,result)
+        except:
+            self.fail("Raised an exception.")
     return test
 
 if __name__ == '__main__':
